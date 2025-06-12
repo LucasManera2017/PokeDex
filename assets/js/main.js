@@ -6,16 +6,7 @@ const url =  `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
 //Retorna uma promise (assincronismo)
 fetch(url)
-  .then((response) => {//arrow function
-    return response.json()//conversão do body para json
-  })
-  .then(function(jsonBody){
-    console.log(jsonBody)
-  })
-  .catch(function(error) {
-    console.log(error)
-  })
-  .finally(function() {
-    console.log('Requisição concluída');
-  })
+  .then((response) => response.json())//conversão do body para json e retorna com função arrow
+  .then((jsonBody) => console.log(jsonBody))
+  .catch((error) => console.log(error))
 
