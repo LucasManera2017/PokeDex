@@ -14,6 +14,10 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- Link Remixicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <!-- Link CSS -->
     <link rel="stylesheet" href="./assets/css/global.css" />
     <link rel="stylesheet" href="./assets/css/pokedex.css" />
@@ -31,14 +35,18 @@
       <h1>Pokedex</h1>
 
       <ol id="pokemonList" class="pokemons">
-
         <!-- Colocar lista de pokemon do JS -->
       </ol>
+      <article class="modal">
+        
+      </article>
       <div class="pagination">
         <button id="loadMoreButton" type="button">Load More</button>
       </div>
     </section>
 
+
+    <script src="./assets/js/modal.js"></script>
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>

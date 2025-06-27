@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: 'roboto';
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
 .pokemons {
   display: grid;
   grid-template-columns: 1fr;
@@ -61,6 +72,9 @@
   background-color: #f9aec7;
 } 
 
+.normal {
+  background-color: #a6a877;
+} 
 
 .pokemon {
   margin: 0.5rem;
@@ -69,6 +83,12 @@
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.pokemon:hover {
+  scale: 1.1;
 }
 
 .pokemon .number {
@@ -126,14 +146,100 @@
   border: none;
   border-radius: 1rem;
   color: white;
-  padding: .25rem .5rem;
-  font-size: .625rem;
+  padding: .55rem .50rem;
+  font-size: .825rem;
   margin: .25rem 0;
+  cursor: pointer;
+}
+
+
+.pagination button:hover {
+  background-color: #5e6ddf;
+  transition: ease-in 1s;
+}
+
+/* PopUp Modal */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: hsla(5, 90%, 4%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity .4s, visibility .4s;
+}
+
+.modalCard {
+  position: relative;
+
+  padding: 3rem 1.25rem 2rem;
+  display: grid;
+  row-gap: 1.5rem;
+  text-align: center;
+  transform: rotateX(90deg);
+  transition: transform .6s;
+  border-radius: 1.5rem;
+}
+
+.modalClose {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: darkgray;
+  cursor: pointer;
+}
+
+.modalCard img {
+  width: 220px;
+  justify-self: center;
+  filter: drop-shadow(0 8px 16px hsla(5, 90%, 4%, .2));
+}
+
+.modalName{
+  font-size: 1.5rem;
+  color: rgb(66, 66, 66);
+  margin-bottom: .5rem;
+  text-transform: capitalize;
+  filter: brightness(0.4);
+text-shadow: 3px 2px 2px rgba(195, 195, 195, 0.4);
+}
+
+.modalDetail {
+  margin-bottom: 1rem;
+  color: rgb(104, 103, 103);
+  filter: brightness(0.4);
+}
+
+/* Active modal */
+.activeModal{
+  opacity: 1;
+  visibility: initial;
+  pointer-events: all;
+}
+
+.activeModal .modalCard {
+  transform: rotateX(0);
 }
 
 @media screen and (min-width: 380px) {
     .pokemons {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .modal {
+      padding-inline: 1rem;
+    }
+
+    .modalCard{
+      max-width: 350px;
     }
 }
 
@@ -141,11 +247,18 @@
     .pokemons {
       grid-template-columns: 1fr 1fr 1fr;
     }
+
+    
 }
 
 
 @media screen and (min-width: 992px) {
     .pokemons {
       grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .modalCard{
+      max-width: 376px;
+      padding: 3rem 2.5rem 2.5rem;
     }
 }
